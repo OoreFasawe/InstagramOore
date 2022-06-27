@@ -9,6 +9,7 @@
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
 #import <Parse/Parse.h>
+#import "PhotoViewController.h"
 
 @interface PostViewController ()
 
@@ -20,6 +21,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
+- (IBAction)takePhoto:(id)sender {
+    [self performSegueWithIdentifier:@"photoSegue" sender:nil];
+}
+
+
 - (IBAction)didTapLogout:(id)sender {
     
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
