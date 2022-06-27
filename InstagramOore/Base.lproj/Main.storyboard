@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,23 +63,35 @@
         <!--Instagram-->
         <scene sceneID="9iT-bf-XwC">
             <objects>
-                <viewController id="XBg-Ha-FiL" sceneMemberID="viewController">
+                <viewController id="XBg-Ha-FiL" customClass="PostViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I15-x5-WF7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Gj2-9i-eh7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Instagram" id="IU7-S4-kmB"/>
+                    <navigationItem key="navigationItem" title="Instagram" id="IU7-S4-kmB">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="xLc-C5-H8W">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="q7O-oh-uZb">
+                                <rect key="frame" x="302" y="12.5" width="92" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Logout"/>
+                                <connections>
+                                    <action selector="didTapLogout:" destination="XBg-Ha-FiL" eventType="touchUpInside" id="Jk7-VG-qAc"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57M-Oa-9Ma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1599" y="58"/>
+            <point key="canvasLocation" x="1793" y="58"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="24F-90-u7z">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tpA-um-cgM" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="tpA-um-cgM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PJf-qt-JsV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
