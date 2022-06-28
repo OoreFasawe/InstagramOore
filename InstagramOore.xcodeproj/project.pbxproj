@@ -23,6 +23,8 @@
 		8932F7E5286A4DC9003612CF /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8932F7E4286A4DC9003612CF /* PostViewController.m */; };
 		8932F7E8286A589D003612CF /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8932F7E7286A589D003612CF /* PhotoViewController.m */; };
 		8932F7EB286A5D39003612CF /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8932F7EA286A5D39003612CF /* Post.m */; };
+		8932F7F0286A750F003612CF /* InstaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8932F7EE286A750F003612CF /* InstaCell.m */; };
+		8932F7F5286B7D0D003612CF /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8932F7F4286B7D0D003612CF /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,10 @@
 		8932F7E7286A589D003612CF /* PhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		8932F7E9286A5D39003612CF /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		8932F7EA286A5D39003612CF /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		8932F7EE286A750F003612CF /* InstaCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstaCell.m; sourceTree = "<group>"; };
+		8932F7EF286A750F003612CF /* InstaCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstaCell.h; sourceTree = "<group>"; };
+		8932F7F3286B7D0D003612CF /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		8932F7F4286B7D0D003612CF /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		D074C9220CD316DD0A016C84 /* Pods-InstagramOore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramOore.release.xcconfig"; path = "Target Support Files/Pods-InstagramOore/Pods-InstagramOore.release.xcconfig"; sourceTree = "<group>"; };
 		D8BB3C756B62284948AF1E7D /* Pods-InstagramOore-InstagramOoreUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramOore-InstagramOoreUITests.release.xcconfig"; path = "Target Support Files/Pods-InstagramOore-InstagramOoreUITests/Pods-InstagramOore-InstagramOoreUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E990DA26BEBEB7BF14124721 /* Pods_InstagramOore_InstagramOoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramOore_InstagramOoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,23 +159,13 @@
 		8932F76028697C8B003612CF /* InstagramOore */ = {
 			isa = PBXGroup;
 			children = (
-				8932F76128697C8B003612CF /* AppDelegate.h */,
-				8932F76228697C8B003612CF /* AppDelegate.m */,
-				8932F76428697C8B003612CF /* SceneDelegate.h */,
-				8932F76528697C8B003612CF /* SceneDelegate.m */,
-				8932F76A28697C8B003612CF /* Main.storyboard */,
-				8932F7E6286A589D003612CF /* PhotoViewController.h */,
-				8932F7E7286A589D003612CF /* PhotoViewController.m */,
-				8932F7E3286A4DC9003612CF /* PostViewController.h */,
-				8932F7E4286A4DC9003612CF /* PostViewController.m */,
-				8932F7E0286A4A07003612CF /* LoginViewController.h */,
-				8932F7E1286A4A07003612CF /* LoginViewController.m */,
+				8932F7F8286B7D66003612CF /* Delegates */,
+				8932F7F7286B7D29003612CF /* ViewControllers */,
+				8932F7F6286B7D1B003612CF /* Models */,
 				8932F76D28697C8B003612CF /* Assets.xcassets */,
-				8932F76F28697C8C003612CF /* LaunchScreen.storyboard */,
+				8932F7F9286B7D7C003612CF /* Storyboards */,
 				8932F77228697C8C003612CF /* Info.plist */,
 				8932F77328697C8C003612CF /* main.m */,
-				8932F7E9286A5D39003612CF /* Post.h */,
-				8932F7EA286A5D39003612CF /* Post.m */,
 			);
 			path = InstagramOore;
 			sourceTree = "<group>";
@@ -189,6 +185,52 @@
 				8932F78928697C8C003612CF /* InstagramOoreUITestsLaunchTests.m */,
 			);
 			path = InstagramOoreUITests;
+			sourceTree = "<group>";
+		};
+		8932F7F6286B7D1B003612CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8932F7EF286A750F003612CF /* InstaCell.h */,
+				8932F7EE286A750F003612CF /* InstaCell.m */,
+				8932F7E9286A5D39003612CF /* Post.h */,
+				8932F7EA286A5D39003612CF /* Post.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8932F7F7286B7D29003612CF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8932F7E6286A589D003612CF /* PhotoViewController.h */,
+				8932F7E7286A589D003612CF /* PhotoViewController.m */,
+				8932F7E3286A4DC9003612CF /* PostViewController.h */,
+				8932F7E4286A4DC9003612CF /* PostViewController.m */,
+				8932F7E0286A4A07003612CF /* LoginViewController.h */,
+				8932F7E1286A4A07003612CF /* LoginViewController.m */,
+				8932F7F3286B7D0D003612CF /* DetailsViewController.h */,
+				8932F7F4286B7D0D003612CF /* DetailsViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8932F7F8286B7D66003612CF /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				8932F76128697C8B003612CF /* AppDelegate.h */,
+				8932F76228697C8B003612CF /* AppDelegate.m */,
+				8932F76428697C8B003612CF /* SceneDelegate.h */,
+				8932F76528697C8B003612CF /* SceneDelegate.m */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		8932F7F9286B7D7C003612CF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				8932F76A28697C8B003612CF /* Main.storyboard */,
+				8932F76F28697C8C003612CF /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +476,8 @@
 				8932F77428697C8C003612CF /* main.m in Sources */,
 				8932F7E8286A589D003612CF /* PhotoViewController.m in Sources */,
 				8932F76628697C8B003612CF /* SceneDelegate.m in Sources */,
+				8932F7F0286A750F003612CF /* InstaCell.m in Sources */,
+				8932F7F5286B7D0D003612CF /* DetailsViewController.m in Sources */,
 				8932F7E5286A4DC9003612CF /* PostViewController.m in Sources */,
 				8932F7EB286A5D39003612CF /* Post.m in Sources */,
 			);

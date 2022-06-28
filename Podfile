@@ -6,7 +6,10 @@ target 'InstagramOore' do
   use_frameworks!
 
   # Pods for InstagramOore
+	pod 'DateTools'
 	pod "Parse"
+	pod "Parse/UI"
+	
 
   target 'InstagramOoreTests' do
     inherit! :search_paths
