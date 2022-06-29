@@ -9,7 +9,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol PhotoViewControllerDelegate <NSObject>
+
+-(void)didChooseProfileImage:(UIImageView *) imageView;
+
+@end
 @interface PhotoViewController : UIViewController < UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (nonatomic, weak) id<PhotoViewControllerDelegate> delegate;
 
 @end
 

@@ -8,9 +8,12 @@
 #import "PhotoViewController.h"
 #import "Post.h"
 
+
 @interface PhotoViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *postCaption;
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
+@property (strong, nonatomic) UIImageView *imageViewToSet;
+@property (strong, nonatomic) IBOutlet UIImageView *profileImage;
 
 @end
 
@@ -24,6 +27,7 @@
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
+    [self setImageView:self.postImage];
 
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -41,6 +45,7 @@
     imagePickerVC.allowsEditing = YES;
     
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self setImageView:self.postImage];
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
@@ -63,6 +68,40 @@
     }
 }
 
+
+- (IBAction)takePhotoForProfile:(id)sender {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    [self setImageView:self.profileImage];
+
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else {
+        NSLog(@"Camera 🚫 available so we will use photo library instead");
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+- (IBAction)uploadFromLibraryForProfile:(id)sender {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self setImageView:self.profileImage];
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+
+- (IBAction)didChooseImageForProfile:(id)sender {
+    if(self.profileImage.image){
+        [self dismissViewControllerAnimated:true completion:nil];
+        [self.delegate didChooseProfileImage:self.profileImage];
+    }
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Get the image captured by the UIImagePickerController
@@ -70,9 +109,9 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
     
-    [self.postImage setImage:[self resizeImage:originalImage withSize:CGSizeMake(500, 500)]];
-    self.postImage.layer.cornerRadius = 10;
-    self.postImage.layer.borderWidth = 0.05;
+    [self.imageViewToSet setImage:[self resizeImage:originalImage withSize:CGSizeMake(500, 500)]];
+    self.imageViewToSet.layer.cornerRadius = 10;
+    self.imageViewToSet.layer.borderWidth = 0.05;
 
     
     // Dismiss UIImagePickerController to go back to your original view controller
@@ -108,6 +147,12 @@
         // optional code for what happens after the alert controller has finished presenting
     }];
 }
+
+-(void)setImageView:(UIImageView *)imageView{
+    self.imageViewToSet = imageView;
+}
+
+
 /*
 #pragma mark - Navigation
 

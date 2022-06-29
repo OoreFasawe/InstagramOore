@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -91,7 +92,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Oore" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwn-lb-IsJ">
-                                                    <rect key="frame" x="16" y="8" width="43" height="21"/>
+                                                    <rect key="frame" x="16" y="8" width="42.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -307,23 +308,136 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8cI-ux-QyV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2702.898550724638" y="777.45535714285711"/>
+            <point key="canvasLocation" x="2661" y="777"/>
+        </scene>
+        <!--Set Profile Image-->
+        <scene sceneID="dy6-og-tPZ">
+            <objects>
+                <viewController id="b40-cX-h2c" customClass="PhotoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ezq-tZ-BxZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pPJ-Tr-OOw">
+                                <rect key="frame" x="20" y="56" width="374" height="341"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3w1-y1-kd1">
+                                <rect key="frame" x="146" y="435" width="121" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Set Image"/>
+                                <connections>
+                                    <action selector="didChooseImageForProfile:" destination="b40-cX-h2c" eventType="touchUpInside" id="tRE-Mz-ail"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TlT-qw-9QP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Set Profile Image" id="nUs-fO-j4C">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="wkT-FN-K6n">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="GFb-9w-l5U">
+                                <rect key="frame" x="20" y="11" width="110" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Take Photo"/>
+                                <connections>
+                                    <action selector="takePhotoForProfile:" destination="b40-cX-h2c" eventType="touchUpInside" id="kE4-OU-VgV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="jTx-PO-QCk">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Ql3-Od-KeJ">
+                                <rect key="frame" x="302" y="11" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Library"/>
+                                <connections>
+                                    <action selector="uploadFromLibraryForProfile:" destination="b40-cX-h2c" eventType="touchUpInside" id="Zjd-k1-3lq"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="profileImage" destination="pPJ-Tr-OOw" id="8rn-7b-2pt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qCB-82-r1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5598.5507246376819" y="776.78571428571422"/>
         </scene>
         <!--Profile-->
         <scene sceneID="vVe-wU-AzA">
             <objects>
-                <viewController id="rIX-Qv-w1n" sceneMemberID="viewController">
+                <viewController id="rIX-Qv-w1n" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ykz-9V-yaN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcb-Ze-h1c">
+                                <rect key="frame" x="20" y="50" width="86" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpX-h0-wZB">
+                                <rect key="frame" x="20" y="194" width="138" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Set profile photo"/>
+                                <connections>
+                                    <segue destination="u7v-qH-tzh" kind="presentation" id="c64-7j-0E0"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9fd-Lw-NME">
+                                <rect key="frame" x="16" y="346" width="382" height="431"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IZ9-hF-7qk">
+                                    <size key="itemSize" width="117" height="117"/>
+                                    <size key="estimatedItemSize" width="117" height="117"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="collectionViewCell" id="rB9-Dw-1w4" customClass="collectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="117" height="117"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="Lcj-2H-6av">
+                                            <rect key="frame" x="0.0" y="0.0" width="117" height="117"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="bUF-yw-ce4" customClass="PFImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="117"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="117" height="117"/>
+                                        <connections>
+                                            <outlet property="postPhoto" destination="bUF-yw-ce4" id="Zgc-VX-jcx"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eVd-nV-V68"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eVd-nV-V68" firstAttribute="bottom" secondItem="9fd-Lw-NME" secondAttribute="bottom" constant="16" id="3TD-U0-FiC"/>
+                            <constraint firstItem="9fd-Lw-NME" firstAttribute="leading" secondItem="eVd-nV-V68" secondAttribute="leading" constant="16" id="Wnc-34-jQg"/>
+                            <constraint firstItem="eVd-nV-V68" firstAttribute="trailing" secondItem="9fd-Lw-NME" secondAttribute="trailing" constant="16" id="daD-Oq-tZD"/>
+                            <constraint firstItem="9fd-Lw-NME" firstAttribute="top" secondItem="eVd-nV-V68" secondAttribute="top" constant="346" id="mbu-hT-2mo"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="YG7-Nn-rEf"/>
+                    <connections>
+                        <outlet property="collectionView" destination="9fd-Lw-NME" id="w1F-5m-kAo"/>
+                        <outlet property="profilePhoto" destination="xcb-Ze-h1c" id="PND-c7-x37"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWf-ck-LA8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4877" y="58"/>
+            <point key="canvasLocation" x="4691.304347826087" y="57.589285714285708"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="a8D-Cj-waM">
@@ -379,6 +493,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFe-t6-Sdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1792.753623188406" y="777.45535714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FT3-79-Oft">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u7v-qH-tzh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nl9-v2-HDL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="b40-cX-h2c" kind="relationship" relationship="rootViewController" id="roQ-Rc-2nv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Juk-bU-TEU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4689.8550724637689" y="776.78571428571422"/>
         </scene>
     </scenes>
     <resources>

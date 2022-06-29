@@ -10,6 +10,8 @@
 		27D09C488B127A5677D8F9C3 /* Pods_InstagramOore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B60218176DAA476F30A4DAC /* Pods_InstagramOore.framework */; };
 		44B15B5EDDD26EF20E659F3C /* Pods_InstagramOoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BE0B1B0325239FF30013CF /* Pods_InstagramOoreTests.framework */; };
 		545E812FE72FB13EE490C1DE /* Pods_InstagramOore_InstagramOoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E990DA26BEBEB7BF14124721 /* Pods_InstagramOore_InstagramOoreUITests.framework */; };
+		891D7CA3286C1F3800FC0973 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 891D7CA2286C1F3800FC0973 /* ProfileViewController.m */; };
+		891D7CA6286CB6C000FC0973 /* collectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 891D7CA5286CB6C000FC0973 /* collectionViewCell.m */; };
 		8932F76328697C8B003612CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8932F76228697C8B003612CF /* AppDelegate.m */; };
 		8932F76628697C8B003612CF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8932F76528697C8B003612CF /* SceneDelegate.m */; };
 		8932F76C28697C8B003612CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8932F76A28697C8B003612CF /* Main.storyboard */; };
@@ -50,6 +52,10 @@
 		2B60218176DAA476F30A4DAC /* Pods_InstagramOore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramOore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7638A52B53DDFA3711BC7FC0 /* Pods-InstagramOoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramOoreTests.debug.xcconfig"; path = "Target Support Files/Pods-InstagramOoreTests/Pods-InstagramOoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7B358DA7F33492A579292626 /* Pods-InstagramOore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramOore.debug.xcconfig"; path = "Target Support Files/Pods-InstagramOore/Pods-InstagramOore.debug.xcconfig"; sourceTree = "<group>"; };
+		891D7CA1286C1F3800FC0973 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = InstagramOore/ViewControllers/ProfileViewController.h; sourceTree = SOURCE_ROOT; };
+		891D7CA2286C1F3800FC0973 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = InstagramOore/ViewControllers/ProfileViewController.m; sourceTree = SOURCE_ROOT; };
+		891D7CA4286CB6C000FC0973 /* collectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = collectionViewCell.h; path = InstagramOore/Models/collectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		891D7CA5286CB6C000FC0973 /* collectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = collectionViewCell.m; path = InstagramOore/Models/collectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		8932F75E28697C8B003612CF /* InstagramOore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramOore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8932F76128697C8B003612CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8932F76228697C8B003612CF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -190,6 +196,8 @@
 		8932F7F6286B7D1B003612CF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				891D7CA4286CB6C000FC0973 /* collectionViewCell.h */,
+				891D7CA5286CB6C000FC0973 /* collectionViewCell.m */,
 				8932F7EF286A750F003612CF /* InstaCell.h */,
 				8932F7EE286A750F003612CF /* InstaCell.m */,
 				8932F7E9286A5D39003612CF /* Post.h */,
@@ -201,6 +209,8 @@
 		8932F7F7286B7D29003612CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				891D7CA1286C1F3800FC0973 /* ProfileViewController.h */,
+				891D7CA2286C1F3800FC0973 /* ProfileViewController.m */,
 				8932F7E6286A589D003612CF /* PhotoViewController.h */,
 				8932F7E7286A589D003612CF /* PhotoViewController.m */,
 				8932F7E3286A4DC9003612CF /* PostViewController.h */,
@@ -474,7 +484,9 @@
 				8932F7E2286A4A07003612CF /* LoginViewController.m in Sources */,
 				8932F76328697C8B003612CF /* AppDelegate.m in Sources */,
 				8932F77428697C8C003612CF /* main.m in Sources */,
+				891D7CA6286CB6C000FC0973 /* collectionViewCell.m in Sources */,
 				8932F7E8286A589D003612CF /* PhotoViewController.m in Sources */,
+				891D7CA3286C1F3800FC0973 /* ProfileViewController.m in Sources */,
 				8932F76628697C8B003612CF /* SceneDelegate.m in Sources */,
 				8932F7F0286A750F003612CF /* InstaCell.m in Sources */,
 				8932F7F5286B7D0D003612CF /* DetailsViewController.m in Sources */,
