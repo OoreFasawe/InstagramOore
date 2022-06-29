@@ -26,8 +26,8 @@
             NSLog(@"Welcome back %@ 😀", user.username);
 
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UIViewController *postNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"PostNavigationController"];
-            self.window.rootViewController = postNavigationController;
+            UIViewController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"tabBarController"];
+            self.window.rootViewController = tabBarController;
             
         }
 }
