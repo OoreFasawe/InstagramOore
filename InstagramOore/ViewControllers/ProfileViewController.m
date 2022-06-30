@@ -41,11 +41,9 @@
     [query includeKey:@"createdAt"];
     query.limit = 20;
 
-    // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.myPosts = posts;
-//            [self.refreshControl endRefreshing];
             [self.collectionView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
