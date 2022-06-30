@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -45,8 +44,6 @@
 - (IBAction)didTapLogout:(id)sender {
     
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        // PFUser.current() will now be nil
-        
         if (error)
         {}
         else{
@@ -66,7 +63,6 @@
     [query includeKey:@"createdAt"];
     query.limit = 20;
 
-    // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             self.postArray = posts;
@@ -78,7 +74,6 @@
     }];
 }
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([[segue identifier] isEqualToString:@"DetailsViewController"]){
         UITableViewCell *instaCell = sender;
@@ -89,7 +84,6 @@
         detailsController.post = igPost;
     }
 }
-
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     InstaCell *instaCell = [self.tableView dequeueReusableCellWithIdentifier:@"InstaCell"];

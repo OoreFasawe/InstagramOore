@@ -18,7 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 - (IBAction)takePhotoForProfile:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
@@ -51,11 +50,7 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
-    // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    
     
     [self.profilePhoto setImage:[self resizeImage:originalImage withSize:CGSizeMake(500, 500)]];
     self.profilePhoto.layer.cornerRadius = 10;
@@ -63,11 +58,8 @@
     
     PFUser *user = [PFUser currentUser];
     user[@"profilePhoto"] = [Post getPFFileFromImage:self.profilePhoto.image];
-    
     [user saveInBackground];
-
     
-    // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
@@ -83,15 +75,5 @@
     
     return newImage;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

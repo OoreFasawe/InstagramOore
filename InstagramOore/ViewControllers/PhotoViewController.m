@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *postCaption;
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 @property (strong, nonatomic) UIImageView *imageViewToSet;
-@property (strong, nonatomic) IBOutlet UIImageView *profileImage;
 
 @end
 
@@ -21,7 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 - (IBAction)takePhoto:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
@@ -33,7 +31,6 @@
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     else {
-        NSLog(@"Camera 🚫 available so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
 
@@ -53,13 +50,6 @@
     
     if(self.postImage.image && ![self.postCaption.text isEqualToString:@""]){
     [Post postUserImage:self.postImage.image withCaption:self.postCaption.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if(error)
-        {
-            NSLog(@"Error sending to Parse");
-        }
-        else{
-            NSLog(@"Photo saved successfully");
-        }
     }];
     [self dismissViewControllerAnimated:true completion:nil];
     }
@@ -72,15 +62,11 @@
     
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    
     
     [self.imageViewToSet setImage:[self resizeImage:originalImage withSize:CGSizeMake(500, 500)]];
     self.imageViewToSet.layer.cornerRadius = 10;
     self.imageViewToSet.layer.borderWidth = 0.05;
 
-    
-    // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
@@ -102,31 +88,14 @@
                                                                                message:@"Add a caption and image"
                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
     
-    UIAlertAction *tryAgain = [UIAlertAction actionWithTitle:@"Try Again"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
-                                                     }];
+    UIAlertAction *tryAgain = [UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
     [alert addAction:tryAgain];
     
-    [self presentViewController:alert animated:YES completion:^{
-        // optional code for what happens after the alert controller has finished presenting
-    }];
+    [self presentViewController:alert animated:YES completion:^{}];
 }
 
 -(void)setImageView:(UIImageView *)imageView{
     self.imageViewToSet = imageView;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
