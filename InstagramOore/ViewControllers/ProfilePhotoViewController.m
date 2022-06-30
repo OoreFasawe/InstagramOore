@@ -1,33 +1,29 @@
 //
-//  PhotoViewController.m
+//  ProfilePhotoViewController.m
 //  InstagramOore
 //
-//  Created by Oore Fasawe on 6/27/22.
+//  Created by Oore Fasawe on 6/30/22.
 //
 
-#import "PhotoViewController.h"
+#import "ProfilePhotoViewController.h"
 #import "Post.h"
+@import Parse;
 
-
-@interface PhotoViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *postCaption;
-@property (weak, nonatomic) IBOutlet UIImageView *postImage;
-@property (strong, nonatomic) UIImageView *imageViewToSet;
-@property (strong, nonatomic) IBOutlet UIImageView *profileImage;
+@interface ProfilePhotoViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *profilePhoto;
 
 @end
 
-@implementation PhotoViewController
+@implementation ProfilePhotoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    // Do any additional setup after loading the view.
 }
-- (IBAction)takePhoto:(id)sender {
+- (IBAction)takePhotoForProfile:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-    [self setImageView:self.postImage];
 
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -39,32 +35,18 @@
 
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
-- (IBAction)uploadFromLibrary:(id)sender {
+- (IBAction)uploadFromLibraryForProfile:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
     
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    [self setImageView:self.postImage];
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
-- (IBAction)makePost:(id)sender {
-    
-    if(self.postImage.image && ![self.postCaption.text isEqualToString:@""]){
-    [Post postUserImage:self.postImage.image withCaption:self.postCaption.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if(error)
-        {
-            NSLog(@"Error sending to Parse");
-        }
-        else{
-            NSLog(@"Photo saved successfully");
-        }
-    }];
-    [self dismissViewControllerAnimated:true completion:nil];
-    }
-    else{
-        [self showAlert];
+- (IBAction)didChooseImageForProfile:(id)sender {
+    if(self.profilePhoto.image){
+        [self dismissViewControllerAnimated:true completion:nil];
     }
 }
 
@@ -75,9 +57,14 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
     
     
-    [self.imageViewToSet setImage:[self resizeImage:originalImage withSize:CGSizeMake(500, 500)]];
-    self.imageViewToSet.layer.cornerRadius = 10;
-    self.imageViewToSet.layer.borderWidth = 0.05;
+    [self.profilePhoto setImage:[self resizeImage:originalImage withSize:CGSizeMake(500, 500)]];
+    self.profilePhoto.layer.cornerRadius = 10;
+    self.profilePhoto.layer.borderWidth = 0.05;
+    
+    PFUser *user = [PFUser currentUser];
+    user[@"profilePhoto"] = [Post getPFFileFromImage:self.profilePhoto.image];
+    
+    [user saveInBackground];
 
     
     // Dismiss UIImagePickerController to go back to your original view controller
@@ -96,28 +83,6 @@
     
     return newImage;
 }
-
--(void)showAlert{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Missing Field(s)"
-                                                                               message:@"Add a caption and image"
-                                                                        preferredStyle:(UIAlertControllerStyleAlert)];
-    
-    UIAlertAction *tryAgain = [UIAlertAction actionWithTitle:@"Try Again"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
-                                                     }];
-    [alert addAction:tryAgain];
-    
-    [self presentViewController:alert animated:YES completion:^{
-        // optional code for what happens after the alert controller has finished presenting
-    }];
-}
-
--(void)setImageView:(UIImageView *)imageView{
-    self.imageViewToSet = imageView;
-}
-
 
 /*
 #pragma mark - Navigation

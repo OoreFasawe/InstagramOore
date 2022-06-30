@@ -18,19 +18,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Oore" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LTp-jF-Cqz">
-                                <rect key="frame" x="86" y="325" width="249" height="34"/>
+                                <rect key="frame" x="20" y="325" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qSB-03-ape">
-                                <rect key="frame" x="86" y="409" width="249" height="34"/>
+                                <rect key="frame" x="20" y="367" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhl-qN-LMc">
+                                <rect key="frame" x="20" y="433" width="374" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Login">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.15963762887129421" green="0.59532756875143944" blue="0.96078431610000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="loginUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UaU-IG-CIm"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDE-2p-eAl">
-                                <rect key="frame" x="82" y="511" width="98" height="31"/>
+                                <rect key="frame" x="239" y="831" width="98" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up"/>
@@ -38,24 +53,15 @@
                                     <action selector="registerUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uYr-EL-K2l"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vhl-qN-LMc">
-                                <rect key="frame" x="240" y="511" width="92" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLN-hV-4oe">
+                                <rect key="frame" x="77" y="831" width="185" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Login"/>
-                                <connections>
-                                    <action selector="loginUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UaU-IG-CIm"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Instagram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubh-Y2-Ugl">
-                                <rect key="frame" x="169" y="243" width="76" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="a5t-y0-Te1">
-                                <rect key="frame" x="155" y="132" width="105" height="103"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="vGr-0V-y4J">
+                                <rect key="frame" x="91" y="191" width="232" height="107"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -313,7 +319,7 @@
         <!--Set Profile Image-->
         <scene sceneID="dy6-og-tPZ">
             <objects>
-                <viewController id="b40-cX-h2c" customClass="PhotoViewController" sceneMemberID="viewController">
+                <viewController id="b40-cX-h2c" customClass="ProfilePhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ezq-tZ-BxZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -328,7 +334,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Set Image"/>
                                 <connections>
-                                    <action selector="didChooseImageForProfile:" destination="b40-cX-h2c" eventType="touchUpInside" id="tRE-Mz-ail"/>
+                                    <action selector="didChooseImageForProfile:" destination="b40-cX-h2c" eventType="touchUpInside" id="PrB-wT-VAy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -343,7 +349,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Take Photo"/>
                                 <connections>
-                                    <action selector="takePhotoForProfile:" destination="b40-cX-h2c" eventType="touchUpInside" id="kE4-OU-VgV"/>
+                                    <action selector="takePhotoForProfile:" destination="b40-cX-h2c" eventType="touchUpInside" id="ZGR-1M-GuW"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -354,13 +360,13 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Library"/>
                                 <connections>
-                                    <action selector="uploadFromLibraryForProfile:" destination="b40-cX-h2c" eventType="touchUpInside" id="Zjd-k1-3lq"/>
+                                    <action selector="uploadFromLibraryForProfile:" destination="b40-cX-h2c" eventType="touchUpInside" id="BzI-EE-OW8"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="profileImage" destination="pPJ-Tr-OOw" id="8rn-7b-2pt"/>
+                        <outlet property="profilePhoto" destination="pPJ-Tr-OOw" id="AsP-T2-fKi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qCB-82-r1L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -375,21 +381,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcb-Ze-h1c">
-                                <rect key="frame" x="20" y="50" width="86" height="84"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xcb-Ze-h1c" customClass="PFImageView">
+                                <rect key="frame" x="16" y="113" width="86" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpX-h0-wZB">
-                                <rect key="frame" x="20" y="194" width="138" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Set profile photo"/>
-                                <connections>
-                                    <segue destination="u7v-qH-tzh" kind="presentation" id="c64-7j-0E0"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9fd-Lw-NME">
-                                <rect key="frame" x="16" y="346" width="382" height="431"/>
+                                <rect key="frame" x="16" y="331" width="382" height="446"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IZ9-hF-7qk">
                                     <size key="itemSize" width="117" height="117"/>
@@ -419,6 +416,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KpX-h0-wZB">
+                                <rect key="frame" x="16" y="205" width="132" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Set profile photo"/>
+                                <connections>
+                                    <segue destination="u7v-qH-tzh" kind="presentation" identifier="profilephotoSegue" id="c64-7j-0E0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eVd-nV-V68"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -426,7 +432,7 @@
                             <constraint firstItem="eVd-nV-V68" firstAttribute="bottom" secondItem="9fd-Lw-NME" secondAttribute="bottom" constant="16" id="3TD-U0-FiC"/>
                             <constraint firstItem="9fd-Lw-NME" firstAttribute="leading" secondItem="eVd-nV-V68" secondAttribute="leading" constant="16" id="Wnc-34-jQg"/>
                             <constraint firstItem="eVd-nV-V68" firstAttribute="trailing" secondItem="9fd-Lw-NME" secondAttribute="trailing" constant="16" id="daD-Oq-tZD"/>
-                            <constraint firstItem="9fd-Lw-NME" firstAttribute="top" secondItem="eVd-nV-V68" secondAttribute="top" constant="346" id="mbu-hT-2mo"/>
+                            <constraint firstItem="9fd-Lw-NME" firstAttribute="top" secondItem="eVd-nV-V68" secondAttribute="top" constant="331" id="j9z-KB-q9X"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="YG7-Nn-rEf"/>
@@ -515,6 +521,7 @@
     </scenes>
     <resources>
         <image name="Icon-60" width="60" height="60"/>
+        <image name="Image" width="1132" height="322"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

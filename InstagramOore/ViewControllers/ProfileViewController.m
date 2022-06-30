@@ -6,12 +6,14 @@
 //
 
 #import "ProfileViewController.h"
+#import "ProfilePhotoViewController.h"
 #import <Parse/Parse.h>
-
+#import "collectionViewCell.h"
+#import "Post.h"
 
 
 @interface ProfileViewController()
-@property (strong, nonatomic) IBOutlet UIImageView *profilePhoto;
+@property (strong, nonatomic) IBOutlet PFImageView *profilePhoto;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *myPosts;
 
@@ -25,18 +27,16 @@
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    
     [self fetchProfileposts];
+    
+    self.profilePhoto.file = [PFUser currentUser][@"profilePhoto"];
+    [self.profilePhoto loadInBackground];
     
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UINavigationController *navigationController = [segue destinationViewController];
-        PhotoViewController *photoViewController = (PhotoViewController*)navigationController.topViewController;
-        photoViewController.delegate = self;
-}
 -(void)fetchProfileposts{
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query whereKey:@"author" equalTo:[PFUser currentUser]];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     [query includeKey:@"createdAt"];
@@ -62,13 +62,16 @@
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
-    cell.postPhoto = 
+    collectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"collectionViewCell" forIndexPath:indexPath];
+    
+    Post *post = self.myPosts[indexPath.row];
+    cell.postPhoto.file = post[@"image"];
+    [cell.postPhoto loadInBackground];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 30;
+    return self.myPosts.count;
 }
 
 @end
